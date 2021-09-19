@@ -78,10 +78,6 @@ function search() {
             updatePastSearches();
             today(response, cityName);
         })
-
-        .catch(function() {
-            alert("Enter a valid city");
-        })
 };
 
 function today(response, cityName) {
