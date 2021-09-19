@@ -13,8 +13,6 @@ header {
 button {
     background-color: rgb(152, 198, 255);
     color: white;
-    height: 40px;
-    width: 400px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
@@ -23,15 +21,14 @@ button {
 }
 
 #city {
-    height: 38px;
-    width: 390px;
     border-radius: 5px;
     margin-top: 20px;
     font-size: 20px;
     font-weight: bolder;
 }
 
-#search {
-    font-size: 30px;
-    font-weight: bolder;
+.past-button {
+    background-color: rgb(70, 67, 67);
+    width: 75%;
+    border-radius: 5px;
 }

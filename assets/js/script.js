@@ -36,7 +36,7 @@ function forecast(response) {
     $(".forecast-days").each(function() {
         var dayDate = moment().add(count + 1, 'days').format("MM/DD/YY");
         var htmlDay = "<p class='date'>" + dayDate + "</p>" + 
-        "<img class='icon' id='wicon' src='http://openweathermap.org/img/wn/" + response.daily[count].weather[0].icon + "@2x.png' alt='Weather icon'>" +
+        "<img class='icon' id='wicon' src='http://openweathermap.org/img/wn/" + response.daily[count].weather[0].icon + "@2x.png'>" +
         "<p>Temp: " + response.daily[count].temp.day + " F</p>" +
         "<p>Wind: " + response.daily[count].wind_speed + " mph</p>" +
         "<p>Humidity: " + response.daily[count].humidity + "</p>";
@@ -48,7 +48,7 @@ function forecast(response) {
 function search() {
 
     var textInput = document.querySelector("#city").value;
-    var locationApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + textInput + "&appid=b579564ec60f2efd0d30f05fbccce8ee";
+    var locationApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + textInput + "&appid=03a0fca083f2a917c2b44f34472f77e8";
     var cityName = "";
 
     fetch(locationApiUrl)
@@ -64,7 +64,7 @@ function search() {
             cityName = locationResponse.name;
 
             return fetch(
-                "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=b579564ec60f2efd0d30f05fbccce8ee"
+                "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=03a0fca083f2a917c2b44f34472f77e8"
             )
         })
 
@@ -80,17 +80,7 @@ function search() {
         })
 };
 
-function today(response, cityName) {
-    var currentDay = moment().format("MM/DD/YY");
-    var htmlToday = "<h3 class='date-today'>"+ cityName + " (" + currentDay + ")</h3>" + 
-                    "<img class='icon' id='wicon' src='http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png'>" +
-                    "<p>Temp: " + response.current.temp + " F</p>" +
-                    "<p>Wind: " + response.current.wind_speed + "mph</p>" +
-                    "<p>Humidity: " + response.current.humidity + "%</p>" +
-                    "<p>UVI: <span id='uvi'>" + response.current.uvi + "<span> </p>";
-    $(".current").append(htmlCurrent);
-              
-};
+
 
 function clearContent() {
     $(".forecast-day").empty();
